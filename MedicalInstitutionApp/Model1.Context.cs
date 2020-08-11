@@ -35,5 +35,7 @@ namespace MedicalInstitutionApp
         public virtual DbSet<vwMaintenance> vwMaintenances { get; set; }
         public virtual DbSet<vwManager> vwManagers { get; set; }
         public virtual DbSet<vwPatient> vwPatients { get; set; }
+        public virtual DbSet<ClinicAdministrator> ClinicAdministrators { get; set; }
+        public virtual DbSet<vwAdministrator> vwAdministrators { get; set; }
     }
 }

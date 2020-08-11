@@ -21,6 +21,7 @@ namespace MedicalInstitutionApp
             this.ClinicMaintenances = new HashSet<ClinicMaintenance>();
             this.ClinicManagers = new HashSet<ClinicManager>();
             this.ClinicPatients = new HashSet<ClinicPatient>();
+            this.ClinicAdministrators = new HashSet<ClinicAdministrator>();
         }
     
         public int PersonID { get; set; }
@@ -40,5 +41,7 @@ namespace MedicalInstitutionApp
         public virtual ICollection<ClinicManager> ClinicManagers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClinicPatient> ClinicPatients { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ClinicAdministrator> ClinicAdministrators { get; set; }
     }
 }

@@ -68,6 +68,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClinicAdministrator.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="ClinicDoctor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ClinicAdministratorModel.cs" />
     <Compile Include="Model\ClinicDoctorModel.cs" />
     <Compile Include="Model\ClinicMaintenanaceModel.cs" />
     <Compile Include="Model\ClinicManagerModel.cs" />
@@ -126,6 +130,9 @@
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vwAdministrator.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="vwDoctor.cs">
       <DependentUpon>Model1.tt</DependentUpon>

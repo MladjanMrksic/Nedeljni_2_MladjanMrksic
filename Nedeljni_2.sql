@@ -14,6 +14,8 @@ drop table ClinicPatient
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicDoctor')
 drop table ClinicDoctor
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicManager')
+IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicAdministrator')
+drop table ClinicAdministrator
 drop table ClinicManager
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'Person')
 drop table Person
@@ -25,6 +27,8 @@ IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'vwDoctor')
 drop view vwDoctor
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'vwPatient')
 drop view vwPatient
+IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'vwAdministrator')
+drop view vwAdministrator
 
 create table Person
 (
@@ -91,6 +95,12 @@ NumberOfAccessPointsForAmbulance int,
 NumberOfDisabledAccessPoints int
 )
 
+create table ClinicAdministrator
+(
+AdministratorID INT IDENTITY(1,1) PRIMARY KEY		NOT NULL,
+PersonID int FOREIGN KEY REFERENCES Person(PersonID) not null
+)
+
 GO
 CREATE VIEW vwMaintenance AS
 SELECT Person.*,ClinicMaintenance.MaintenanaceID,ClinicMaintenance.InChargeOfDisabilityAccess,ClinicMaintenance.PermitForClinicExpansion
@@ -114,3 +124,9 @@ CREATE VIEW vwPatient AS
 SELECT Person.*, ClinicPatient.PatientID, ClinicPatient.HealthInsuranceCardNumber, ClinicPatient.HealthInsuranceExpiryDate, ClinicPatient.ChosenDoctor
 FROM Person, ClinicPatient
 WHERE Person.PersonID = ClinicPatient.PersonID
+
+GO
+CREATE VIEW vwAdministrator AS
+SELECT Person.*, ClinicAdministrator.AdministratorID
+FROM Person, ClinicAdministrator
+WHERE Person.PersonID = ClinicAdministrator.PersonID

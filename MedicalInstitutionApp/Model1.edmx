@@ -4,7 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MedicalInstitutionDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MedicalInstitutionDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ClinicAdministrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ClinicDoctor">
           <Key>
             <PropertyRef Name="DoctorID" />
@@ -75,6 +82,30 @@
           <Property Name="Residency" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwAdministrator' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwAdministrator">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="DateOfBirth" />
+            <PropertyRef Name="Residency" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="DateOfBirth" Type="date" Nullable="false" />
+          <Property Name="Residency" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdministratorID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwDoctor' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -186,7 +217,19 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
           <Property Name="HealthInsuranceExpiryDate" Type="date" />
           <Property Name="ChosenDoctor" Type="int" />
         </EntityType>
-        <Association Name="FK__ClinicDoc__Perso__3587F3E0">
+        <Association Name="FK__ClinicAdm__Perso__7EC1CEDB">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="ClinicAdministrator" Type="Self.ClinicAdministrator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="ClinicAdministrator">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ClinicDoc__Perso__74444068">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="ClinicDoctor" Type="Self.ClinicDoctor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -198,7 +241,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClinicDoc__Super__37703C52">
+        <Association Name="FK__ClinicDoc__Super__762C88DA">
           <End Role="ClinicManager" Type="Self.ClinicManager" Multiplicity="0..1" />
           <End Role="ClinicDoctor" Type="Self.ClinicDoctor" Multiplicity="*" />
           <ReferentialConstraint>
@@ -210,7 +253,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClinicMai__Perso__2FCF1A8A">
+        <Association Name="FK__ClinicMai__Perso__6E8B6712">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="ClinicMaintenance" Type="Self.ClinicMaintenance" Multiplicity="*" />
           <ReferentialConstraint>
@@ -222,7 +265,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClinicMan__Perso__32AB8735">
+        <Association Name="FK__ClinicMan__Perso__7167D3BD">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="ClinicManager" Type="Self.ClinicManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -234,7 +277,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClinicPat__Chose__3B40CD36">
+        <Association Name="FK__ClinicPat__Chose__79FD19BE">
           <End Role="ClinicDoctor" Type="Self.ClinicDoctor" Multiplicity="0..1" />
           <End Role="ClinicPatient" Type="Self.ClinicPatient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -246,7 +289,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ClinicPat__Perso__3A4CA8FD">
+        <Association Name="FK__ClinicPat__Perso__7908F585">
           <End Role="Person" Type="Self.Person" Multiplicity="1" />
           <End Role="ClinicPatient" Type="Self.ClinicPatient" Multiplicity="*" />
           <ReferentialConstraint>
@@ -259,12 +302,26 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="MedicalInstitutionDatabaseModelStoreContainer">
+          <EntitySet Name="ClinicAdministrator" EntityType="Self.ClinicAdministrator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClinicDoctor" EntityType="Self.ClinicDoctor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClinicMaintenance" EntityType="Self.ClinicMaintenance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClinicManager" EntityType="Self.ClinicManager" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClinicPatient" EntityType="Self.ClinicPatient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MedicalInstitution" EntityType="Self.MedicalInstitution" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vwAdministrator" EntityType="Self.vwAdministrator" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwAdministrator].[PersonID] AS [PersonID], 
+    [vwAdministrator].[FirstName] AS [FirstName], 
+    [vwAdministrator].[LastName] AS [LastName], 
+    [vwAdministrator].[Gender] AS [Gender], 
+    [vwAdministrator].[DateOfBirth] AS [DateOfBirth], 
+    [vwAdministrator].[Residency] AS [Residency], 
+    [vwAdministrator].[Username] AS [Username], 
+    [vwAdministrator].[Password] AS [Password], 
+    [vwAdministrator].[AdministratorID] AS [AdministratorID]
+    FROM [dbo].[vwAdministrator] AS [vwAdministrator]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vwDoctor" EntityType="Self.vwDoctor" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vwDoctor].[PersonID] AS [PersonID], 
@@ -331,33 +388,36 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
     [vwPatient].[ChosenDoctor] AS [ChosenDoctor]
     FROM [dbo].[vwPatient] AS [vwPatient]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__ClinicDoc__Perso__3587F3E0" Association="Self.FK__ClinicDoc__Perso__3587F3E0">
+          <AssociationSet Name="FK__ClinicAdm__Perso__7EC1CEDB" Association="Self.FK__ClinicAdm__Perso__7EC1CEDB">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="ClinicAdministrator" EntitySet="ClinicAdministrator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ClinicDoc__Perso__74444068" Association="Self.FK__ClinicDoc__Perso__74444068">
             <End Role="Person" EntitySet="Person" />
             <End Role="ClinicDoctor" EntitySet="ClinicDoctor" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClinicDoc__Super__37703C52" Association="Self.FK__ClinicDoc__Super__37703C52">
+          <AssociationSet Name="FK__ClinicDoc__Super__762C88DA" Association="Self.FK__ClinicDoc__Super__762C88DA">
             <End Role="ClinicManager" EntitySet="ClinicManager" />
             <End Role="ClinicDoctor" EntitySet="ClinicDoctor" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClinicMai__Perso__2FCF1A8A" Association="Self.FK__ClinicMai__Perso__2FCF1A8A">
+          <AssociationSet Name="FK__ClinicMai__Perso__6E8B6712" Association="Self.FK__ClinicMai__Perso__6E8B6712">
             <End Role="Person" EntitySet="Person" />
             <End Role="ClinicMaintenance" EntitySet="ClinicMaintenance" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClinicMan__Perso__32AB8735" Association="Self.FK__ClinicMan__Perso__32AB8735">
+          <AssociationSet Name="FK__ClinicMan__Perso__7167D3BD" Association="Self.FK__ClinicMan__Perso__7167D3BD">
             <End Role="Person" EntitySet="Person" />
             <End Role="ClinicManager" EntitySet="ClinicManager" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClinicPat__Chose__3B40CD36" Association="Self.FK__ClinicPat__Chose__3B40CD36">
+          <AssociationSet Name="FK__ClinicPat__Chose__79FD19BE" Association="Self.FK__ClinicPat__Chose__79FD19BE">
             <End Role="ClinicDoctor" EntitySet="ClinicDoctor" />
             <End Role="ClinicPatient" EntitySet="ClinicPatient" />
           </AssociationSet>
-          <AssociationSet Name="FK__ClinicPat__Perso__3A4CA8FD" Association="Self.FK__ClinicPat__Perso__3A4CA8FD">
+          <AssociationSet Name="FK__ClinicPat__Perso__7908F585" Association="Self.FK__ClinicPat__Perso__7908F585">
             <End Role="Person" EntitySet="Person" />
             <End Role="ClinicPatient" EntitySet="ClinicPatient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MedicalInstitutionDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -443,6 +503,7 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
           <NavigationProperty Name="ClinicMaintenances" Relationship="Self.FK__ClinicMai__Perso__2FCF1A8A" FromRole="Person" ToRole="ClinicMaintenance" />
           <NavigationProperty Name="ClinicManagers" Relationship="Self.FK__ClinicMan__Perso__32AB8735" FromRole="Person" ToRole="ClinicManager" />
           <NavigationProperty Name="ClinicPatients" Relationship="Self.FK__ClinicPat__Perso__3A4CA8FD" FromRole="Person" ToRole="ClinicPatient" />
+          <NavigationProperty Name="ClinicAdministrators" Relationship="MedicalInstitutionDatabaseModel.FK__ClinicAdm__Perso__4A4E069C" FromRole="Person" ToRole="ClinicAdministrator" />
         </EntityType>
         <EntityType Name="vwDoctor">
           <Key>
@@ -653,7 +714,55 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
             <End Role="Person" EntitySet="People" />
             <End Role="ClinicPatient" EntitySet="ClinicPatients" />
           </AssociationSet>
+          <EntitySet Name="ClinicAdministrators" EntityType="MedicalInstitutionDatabaseModel.ClinicAdministrator" />
+          <AssociationSet Name="FK__ClinicAdm__Perso__4A4E069C" Association="MedicalInstitutionDatabaseModel.FK__ClinicAdm__Perso__4A4E069C">
+            <End Role="Person" EntitySet="People" />
+            <End Role="ClinicAdministrator" EntitySet="ClinicAdministrators" />
+          </AssociationSet>
+          <EntitySet Name="vwAdministrators" EntityType="MedicalInstitutionDatabaseModel.vwAdministrator" />
         </EntityContainer>
+        <EntityType Name="ClinicAdministrator">
+          <Key>
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="MedicalInstitutionDatabaseModel.FK__ClinicAdm__Perso__4A4E069C" FromRole="ClinicAdministrator" ToRole="Person" />
+        </EntityType>
+        <Association Name="FK__ClinicAdm__Perso__4A4E069C">
+          <End Type="MedicalInstitutionDatabaseModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="MedicalInstitutionDatabaseModel.ClinicAdministrator" Role="ClinicAdministrator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="ClinicAdministrator">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vwAdministrator">
+          <Key>
+            <PropertyRef Name="PersonID" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="Gender" />
+            <PropertyRef Name="DateOfBirth" />
+            <PropertyRef Name="Residency" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="AdministratorID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Residency" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdministratorID" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -808,6 +917,29 @@ warning 6002: The table/view 'MedicalInstitutionDatabase.dbo.vwPatient' does not
                 <ScalarProperty Name="HealthInsuranceCardNumber" ColumnName="HealthInsuranceCardNumber" />
                 <ScalarProperty Name="HealthInsuranceExpiryDate" ColumnName="HealthInsuranceExpiryDate" />
                 <ScalarProperty Name="ChosenDoctor" ColumnName="ChosenDoctor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClinicAdministrators">
+            <EntityTypeMapping TypeName="MedicalInstitutionDatabaseModel.ClinicAdministrator">
+              <MappingFragment StoreEntitySet="ClinicAdministrator">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vwAdministrators">
+            <EntityTypeMapping TypeName="MedicalInstitutionDatabaseModel.vwAdministrator">
+              <MappingFragment StoreEntitySet="vwAdministrator">
+                <ScalarProperty Name="AdministratorID" ColumnName="AdministratorID" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Residency" ColumnName="Residency" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

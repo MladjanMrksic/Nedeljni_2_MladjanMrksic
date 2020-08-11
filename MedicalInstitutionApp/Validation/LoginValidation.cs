@@ -20,17 +20,25 @@ namespace MedicalInstitutionApp.Validation
             ClinicManagerModel manager = new ClinicManagerModel();
             ClinicDoctorModel doctor = new ClinicDoctorModel();
             ClinicPatientModel patient = new ClinicPatientModel();
+            ClinicAdministratorModel administrator = new ClinicAdministratorModel();
 
             List<vwMaintenance> MaintenanceList = maintenance.GetAllClinicMaintenance();
             List<vwManager> ManagerList = manager.GetAllClinicManagers();
             List<vwDoctor> DoctorList = doctor.GetAllClinicDoctors();
             List<vwPatient> PatientList = patient.GetAllClinicPatients();
+            List<vwAdministrator> AdministratorList = administrator.GetAllClinicAdministrators();
             List<string> OwnerAccess = GetClinicAccessCredentials();
 
             if (username == OwnerAccess[0] && password == OwnerAccess[1])
             {
                 ClinicOwnerView cov = new ClinicOwnerView();
                 cov.Show();
+                login.Close();
+            }
+            else if (AdministratorList.Contains((from x in AdministratorList where x.Username == username && x.Password == password select x).FirstOrDefault()))
+            {
+                ClinicAdministratorView cav = new ClinicAdministratorView();
+                cav.Show();
                 login.Close();
             }
             else if (MaintenanceList.Contains((from x in MaintenanceList where x.Username == username && x.Password == password select x).FirstOrDefault()))

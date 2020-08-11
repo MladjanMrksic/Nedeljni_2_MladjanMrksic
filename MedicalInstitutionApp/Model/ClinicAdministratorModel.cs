@@ -9,7 +9,7 @@ namespace MedicalInstitutionApp.Model
 {
     class ClinicAdministratorModel
     {
-        public List<vwAdministrator> GetAllClinicDoctors()
+        public List<vwAdministrator> GetAllClinicAdministrators()
         {
             try
             {

@@ -113,6 +113,9 @@
     <Compile Include="Validation\LoginValidation.cs" />
     <Compile Include="Validation\PasswordValidation.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\ClinicAdministratorView.xaml.cs">
+      <DependentUpon>ClinicAdministratorView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ClinicDoctorView.xaml.cs">
       <DependentUpon>ClinicDoctorView.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="View\ClinicAdministratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ClinicDoctorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

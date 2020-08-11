@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Validation\LoginValidation.cs" />
     <Compile Include="Validation\PasswordValidation.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\ClinicAdministratorView.xaml.cs">
       <DependentUpon>ClinicAdministratorView.xaml</DependentUpon>

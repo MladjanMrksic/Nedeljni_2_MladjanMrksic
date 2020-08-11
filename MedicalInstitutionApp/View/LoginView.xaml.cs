@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedicalInstitutionApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace MedicalInstitutionApp.View
     {
         public LoginView()
         {
+            DataContext = new LoginViewModel(this);
             InitializeComponent();
         }
     }

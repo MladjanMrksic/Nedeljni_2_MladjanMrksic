@@ -13,7 +13,6 @@ namespace MedicalInstitutionApp.Validation
     class LoginValidation
     {
         StreamReader sr;
-        LoginValidation lv = new LoginValidation();
         public void Login(string username, string password, LoginView login)
         {
             ClinicMaintenanaceModel maintenance = new ClinicMaintenanaceModel();

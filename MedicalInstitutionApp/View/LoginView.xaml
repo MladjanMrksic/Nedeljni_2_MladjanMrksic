@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-        Title="LoginView" Height="450" Width="800">
+Title="Login" Height="320" Width="300" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
+            <StackPanel Margin="15">
+                <Label Content="Clinic Application" Foreground="White" FontSize="20" HorizontalAlignment="Center"/>
+                <Separator></Separator>
+                <Label Content="Username" Foreground="White" Margin="0 -5"/>
+                <TextBox Name="usernameBox" Text="{Binding UserName, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" Background="#545d6a" Foreground="White" FontSize="12" Margin="0 10"/>
+                <Label Content="Password" Foreground="White" Margin="0 10"/>
+                <PasswordBox Name="passwordBox" Background="#545d6a" Foreground="White" FontSize="12" Margin="0 -10"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button HorizontalAlignment="Left" Command="{Binding Submit}" Width="80" CommandParameter="{Binding ElementName=passwordBox}" Content="Submit" Margin="20" Background="#545d6a" Foreground="White" FontSize="18"/>
+                    <Button HorizontalAlignment="Left" Command="{Binding Register}" Width="80" CommandParameter="{Binding ElementName=passwordBox}" Content="Register" Margin="20" Background="#545d6a" Foreground="White" FontSize="18"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

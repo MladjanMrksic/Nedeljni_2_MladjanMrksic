@@ -64,6 +64,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
+                    d.Password = Convert.ToString(d.Password.GetHashCode());
                     context.vwDoctors.Add(d);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -81,6 +82,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
+                    updated.Password = Convert.ToString(updated.Password.GetHashCode());
                     vwDoctor d = (from x in context.vwDoctors where x.DoctorID == updated.DoctorID select x).FirstOrDefault();
                     d = updated;
                     context.SaveChanges();

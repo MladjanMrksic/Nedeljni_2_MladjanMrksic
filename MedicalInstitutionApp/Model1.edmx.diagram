@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="MedicalInstitutionDatabaseModel.vwDoctor" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MedicalInstitutionDatabaseModel.vwMaintenance" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MedicalInstitutionDatabaseModel.vwManager" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MedicalInstitutionDatabaseModel.vwPatient" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalInstitutionDatabaseModel.vwPatient" Width="1.5" PointX="9.375" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="MedicalInstitutionDatabaseModel.FK__ClinicDoc__Perso__3587F3E0" ManuallyRouted="false" />
         <AssociationConnector Association="MedicalInstitutionDatabaseModel.FK__ClinicDoc__Super__37703C52" ManuallyRouted="false" />
         <AssociationConnector Association="MedicalInstitutionDatabaseModel.FK__ClinicPat__Chose__3B40CD36" ManuallyRouted="false" />

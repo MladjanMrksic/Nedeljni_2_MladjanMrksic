@@ -66,32 +66,32 @@ namespace MedicalInstitutionApp.ViewModel
             }
         }
 
-        private ICommand close;
-        public ICommand Close
+        private ICommand logout;
+        public ICommand Logout
         {
             get
             {
-                if (close == null)
+                if (logout == null)
                 {
-                    close = new RelayCommand(param => CloseExecute(), param => CanCloseExecute());
+                    logout = new RelayCommand(param => LogoutExecute(), param => CanLogoutExecute());
                 }
-                return close;
+                return logout;
             }
         }
-        private void CloseExecute()
+        private void LogoutExecute()
         {
             try
             {
-                view.Close();
                 LoginView lv = new LoginView();
                 lv.Show();
+                view.Close();               
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Exception:" + ex.Message.ToString());
             }
         }
-        private bool CanCloseExecute()
+        private bool CanLogoutExecute()
         {
             return true;
         }

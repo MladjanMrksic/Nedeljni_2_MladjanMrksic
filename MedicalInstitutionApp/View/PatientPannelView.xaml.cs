@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace MedicalInstitutionApp.View
 {
     /// <summary>
-    /// Interaction logic for ClinicAdministratorView.xaml
+    /// Interaction logic for PatientPannelView.xaml
     /// </summary>
-    public partial class ClinicAdministratorView : Window
+    public partial class PatientPannelView : Window
     {
-        public ClinicAdministratorView()
+        public PatientPannelView()
         {
-            DataContext = new ClinicAdministratorViewModel(this);
+            DataContext = new PatientPannelViewModel(this);
             InitializeComponent();
         }
     }

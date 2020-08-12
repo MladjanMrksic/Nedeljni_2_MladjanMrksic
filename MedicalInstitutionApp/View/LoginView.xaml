@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-Title="Login" Height="320" Width="300" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="320" Width="300" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
         <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
             <StackPanel Margin="15">

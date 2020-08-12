@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-        Title="ClinicAdministratorView" Height="450" Width="800">
+       Title="Administrator" Height="320" Width="300" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Maintenance Pannel" Name="btnMaintenance" Grid.Column="1" Grid.Row="1" Height="20" Width="auto" HorizontalAlignment="Center" 
+                    Command="{Binding MaintenancePannel, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="Manager Pannel" Name="btnManager" Grid.Column="1" Grid.Row="3" Height="20" Width="auto" HorizontalAlignment="Center" 
+                    Command="{Binding ManagerPannel, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="Doctor Pannel" Name="btnDoctor" Grid.Column="1" Grid.Row="5" Height="20" Width="auto" HorizontalAlignment="Center"
+                    Command="{Binding DoctorPannel, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Patient Pannel" Name="btnPatient" Grid.Column="1" Grid.Row="7" Height="20" Width="auto" HorizontalAlignment="Center"
+                    Command="{Binding PatientPannel, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Logout" Name="btnLogout" Grid.Column="1" Grid.Row="9" Height="20" Width="auto" HorizontalAlignment="Center"
+                    Command="{Binding Logout, UpdateSourceTrigger=PropertyChanged}"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

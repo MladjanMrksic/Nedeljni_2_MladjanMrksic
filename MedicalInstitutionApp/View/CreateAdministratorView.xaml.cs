@@ -1,5 +1,4 @@
-﻿using MedicalInstitutionApp.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +21,6 @@ namespace MedicalInstitutionApp.View
     {
         public CreateAdministratorView()
         {
-            DataContext = new CreateAdministratorViewModel(this);
             InitializeComponent();
         }
     }

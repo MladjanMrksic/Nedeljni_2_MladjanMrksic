@@ -112,9 +112,13 @@
     </Compile>
     <Compile Include="Validation\LoginValidation.cs" />
     <Compile Include="Validation\PasswordValidation.cs" />
+    <Compile Include="ViewModel\ClinicAdministratorViewModel.cs" />
     <Compile Include="ViewModel\ClinicOwnerViewModel.cs" />
-    <Compile Include="ViewModel\CreateAdministratorViewModel.cs" />
+    <Compile Include="ViewModel\DoctorPannelViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MaintenancePannelViewModel.cs" />
+    <Compile Include="ViewModel\ManagerPannelViewModel.cs" />
+    <Compile Include="ViewModel\PatientPannelViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\ClinicAdministratorView.xaml.cs">
       <DependentUpon>ClinicAdministratorView.xaml</DependentUpon>
@@ -137,8 +141,20 @@
     <Compile Include="View\CreateAdministratorView.xaml.cs">
       <DependentUpon>CreateAdministratorView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DoctorPannelView.xaml.cs">
+      <DependentUpon>DoctorPannelView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MaintenancePannelView.xaml.cs">
+      <DependentUpon>MaintenancePannelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ManagerPannelView.xaml.cs">
+      <DependentUpon>ManagerPannelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientPannelView.xaml.cs">
+      <DependentUpon>PatientPannelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="vwAdministrator.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -219,7 +235,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DoctorPannelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MaintenancePannelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ManagerPannelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PatientPannelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

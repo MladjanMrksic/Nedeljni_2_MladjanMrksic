@@ -25,13 +25,13 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public vwAdministrator GetClinicAdministrator(int ID)
+        public vwAdministrator GetClinicAdministrator()
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    return (from x in context.vwAdministrators where x.AdministratorID == ID select x).FirstOrDefault();
+                    return (from x in context.vwAdministrators select x).FirstOrDefault();
                 }
             }
             catch (Exception ex)

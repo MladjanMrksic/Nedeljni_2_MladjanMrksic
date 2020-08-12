@@ -112,6 +112,8 @@
     </Compile>
     <Compile Include="Validation\LoginValidation.cs" />
     <Compile Include="Validation\PasswordValidation.cs" />
+    <Compile Include="ViewModel\ClinicOwnerViewModel.cs" />
+    <Compile Include="ViewModel\CreateAdministratorViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\ClinicAdministratorView.xaml.cs">
@@ -131,6 +133,9 @@
     </Compile>
     <Compile Include="View\ClinicPatientView.xaml.cs">
       <DependentUpon>ClinicPatientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CreateAdministratorView.xaml.cs">
+      <DependentUpon>CreateAdministratorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -207,6 +212,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ClinicPatientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CreateAdministratorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

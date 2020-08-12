@@ -1,4 +1,4 @@
-﻿<Window x:Class="MedicalInstitutionApp.View.ClinicOwnerView"
+﻿<Window x:Class="MedicalInstitutionApp.View.CreateAdministratorView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -11,6 +11,8 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="6"/>
                     <RowDefinition Height="auto"/>
@@ -42,11 +44,12 @@
                 <Label Grid.Column="1" Grid.Row="9" Name="lblResidency" Content="Residency" HorizontalAlignment="Right"/>
                 <Label Grid.Column="1" Grid.Row="11" Name="lblUsername" Content="Username" HorizontalAlignment="Right"/>
                 <Label Grid.Column="1" Grid.Row="13" Name="lblPassword" Content="Password" HorizontalAlignment="Right"/>
+                <Label Grid.Column="1" Grid.Row="15" Name="lblAdministratorID" Content="Administrator ID" HorizontalAlignment="Right"/>
                 <StackPanel Grid.Column="3" Grid.Row="21" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Content="Save" Name="btnSave" Height="20" Width="70" HorizontalAlignment="Left" 
-                    Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed"/>
+                    Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}" Visibility="Hidden"/>
                     <Button Content="Update" Name="btnUpdate" Height="20" Width="70" HorizontalAlignment="Left" 
-                    Command="{Binding Update, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed"/>
+                    Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}" Visibility="Hidden"/>
                     <Button Content="Close" Name="btnClose" Height="20" Width="70" HorizontalAlignment="Right"
                     Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
@@ -62,6 +65,7 @@
                 <TextBox Grid.Column="3" Grid.Row="9" Width="auto" Height="20" Name="txtResidency" Text="{Binding Administrator.Residency, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBox Grid.Column="3" Grid.Row="11" Width="auto" Height="20" Name="txtUsername" Text="{Binding Administrator.Username, UpdateSourceTrigger=PropertyChanged}"/>
                 <TextBox Grid.Column="3" Grid.Row="13" Width="auto" Height="20" Name="txtPassword" Text="{Binding Administrator.Password, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="3" Grid.Row="15" Width="auto" Height="20" Name="txtAdministratorID" Text="{Binding Administrator.AdministratorID, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Border>
     </Grid>

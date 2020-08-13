@@ -98,14 +98,14 @@ namespace MedicalInstitutionApp.ViewModel
             {
                 if (addMaintenance == null)
                 {
-                    MessageBox.Show("Functionality not implemented. We are sorry for any inconvenience caused", "Functionality", MessageBoxButton.OK, MessageBoxImage.Information);
+                    addMaintenance = new RelayCommand(param => AddMaintenanceExecute(), param => CanAddMaintenanceExecute());
                 }
                 return addMaintenance;
             }
         }
         private void AddMaintenanceExecute()
         {
-            mainMod.DeleteClinicMaintenance(Maintenance.MaintenanaceID);
+            MessageBox.Show("Functionality not implemented. We are sorry for any inconvenience caused", "Functionality", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private bool CanAddMaintenanceExecute()
         {

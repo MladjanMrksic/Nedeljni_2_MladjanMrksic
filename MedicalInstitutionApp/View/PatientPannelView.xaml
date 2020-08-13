@@ -5,8 +5,65 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-        Title="PatientPannelView" Height="450" Width="800">
+        Title="Patient Pannel" Height="450" Width="1150" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Grid.Row="3" Height="auto" Width="auto">
+                    <DataGrid Name="DataGridEmployees" ItemsSource="{Binding MaintenanceList, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Maintenance, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HeadersVisibility="Column"
+                      AutoGenerateColumns="False" HorizontalGridLinesBrush="Black" BorderBrush="Black" Foreground="Black"
+                      FontWeight="Bold" ColumnWidth="auto" MaxColumnWidth="175">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="First Name" Binding="{Binding Person.FirstName}"/>
+                            <DataGridTextColumn Header="Last Name" Binding="{Binding Person.LastName}"/>
+                            <DataGridTextColumn Header="Gender" Binding="{Binding Person.Gender}"/>
+                            <DataGridTextColumn Header="Date of Birth" Binding="{Binding Person.DateOfBirth}"/>
+                            <DataGridTextColumn Header="Residency" Binding="{Binding Person.Residency}"/>
+                            <DataGridTextColumn Header="Username" Binding="{Binding Person.Username}"/>
+                            <DataGridTextColumn Header="Password" Binding="{Binding Person.Password}"/>
+                            <DataGridTextColumn Header="Health Insurance Number" Binding="{Binding HealthInsuranceCardNumber}"/>
+                            <DataGridTextColumn Header="Insurance Expiry Date" Binding="{Binding HealthInsuranceExpiryDate}"/>
+                            <DataGridTextColumn Header="Chosen doctor" Binding="{Binding ChosenDoctor}" />
+                            <DataGridTemplateColumn Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btnDeleteEmployee"
+                                        Command="{Binding DataContext.Delete, RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Window}},UpdateSourceTrigger=PropertyChanged}" Content="Delete"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Update">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="btnUpdateEmployee"
+                                        Command="{Binding DataContext.Update, RelativeSource={RelativeSource FindAncestor,
+                                    AncestorType={x:Type Window}},UpdateSourceTrigger=PropertyChanged}" Content="Update"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                    <Button Name="btnAdd" Content="Add Patient" Width="Auto" Height="20" HorizontalAlignment="Left" Margin="0,0,20,0"
+                Command="{Binding AddPatient, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
+
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-        Title="Manager Pannel" Height="450" Width="1350" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
+        Title="Doctor Pannel" Height="450" Width="1350" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
         <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
             <Grid>

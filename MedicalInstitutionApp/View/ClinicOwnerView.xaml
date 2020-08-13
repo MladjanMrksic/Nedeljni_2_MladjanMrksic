@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MedicalInstitutionApp.View"
         mc:Ignorable="d"
-       Title="Owner" Height="450" Width="550" FontSize="14" Background="DarkBlue" WindowStartupLocation="CenterScreen">
+       Title="Owner" Height="450" Width="550" FontSize="14" Background="DimGray" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border Background="DarkSlateBlue" CornerRadius="50" Margin="20">
+        <Border Background="LightSlateGray" CornerRadius="50" Margin="20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>

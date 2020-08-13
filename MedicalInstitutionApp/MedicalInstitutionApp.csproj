@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Model\ClinicAdministratorModel.cs" />
     <Compile Include="Model\ClinicDoctorModel.cs" />
+    <Compile Include="Model\ClinicInstitutionModel.cs" />
     <Compile Include="Model\ClinicMaintenanaceModel.cs" />
     <Compile Include="Model\ClinicManagerModel.cs" />
     <Compile Include="Model\ClinicPatientModel.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="ViewModel\ClinicAdministratorViewModel.cs" />
     <Compile Include="ViewModel\ClinicOwnerViewModel.cs" />
     <Compile Include="ViewModel\DoctorPannelViewModel.cs" />
+    <Compile Include="ViewModel\InstitutionPannelViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MaintenancePannelViewModel.cs" />
     <Compile Include="ViewModel\ManagerPannelViewModel.cs" />
@@ -144,6 +146,9 @@
     </Compile>
     <Compile Include="View\DoctorPannelView.xaml.cs">
       <DependentUpon>DoctorPannelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\InstitutionPannelView.xaml.cs">
+      <DependentUpon>InstitutionPannelView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -237,6 +242,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DoctorPannelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\InstitutionPannelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

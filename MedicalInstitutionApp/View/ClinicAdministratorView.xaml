@@ -20,6 +20,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="6"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -35,7 +37,9 @@
                     Command="{Binding DoctorPannel, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="Patient Pannel" Name="btnPatient" Grid.Column="1" Grid.Row="7" Height="20" Width="auto" HorizontalAlignment="Center"
                     Command="{Binding PatientPannel, UpdateSourceTrigger=PropertyChanged}"/>
-                <Button Content="Logout" Name="btnLogout" Grid.Column="1" Grid.Row="9" Height="20" Width="auto" HorizontalAlignment="Center"
+                <Button Content="Institution Pannel" Name="btnInstitution" Grid.Column="1" Grid.Row="9" Height="20" Width="auto" HorizontalAlignment="Center"
+                    Command="{Binding InstitutionPannel, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button Content="Logout" Name="btnLogout" Grid.Column="1" Grid.Row="11" Height="20" Width="auto" HorizontalAlignment="Center"
                     Command="{Binding Logout, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Border>

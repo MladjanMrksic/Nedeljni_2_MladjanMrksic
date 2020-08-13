@@ -136,5 +136,35 @@ namespace MedicalInstitutionApp.ViewModel
         {
             return true;
         }
+
+        private ICommand institutionPannel;
+        public ICommand InstitutionPannel
+        {
+            get
+            {
+                if (institutionPannel == null)
+                {
+                    institutionPannel = new RelayCommand(param => InstitutionPannelExecute(), param => CanInstitutionPannelExecute());
+                }
+                return institutionPannel;
+            }
+        }
+        private void InstitutionPannelExecute()
+        {
+            try
+            {
+                InstitutionPannelView ipv = new InstitutionPannelView();
+                ipv.Show();
+                view.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception:" + ex.Message.ToString());
+            }
+        }
+        private bool CanInstitutionPannelExecute()
+        {
+            return true;
+        }
     }
 }

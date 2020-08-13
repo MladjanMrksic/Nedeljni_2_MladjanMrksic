@@ -25,13 +25,13 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public vwAdministrator GetClinicAdministrator()
+        public ClinicAdministrator GetClinicAdministrator()
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    return (from x in context.vwAdministrators select x).FirstOrDefault();
+                    return (from x in context.ClinicAdministrators select x).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -47,7 +47,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    context.vwAdministrators.Remove((from x in context.vwAdministrators where x.AdministratorID == ID select x).FirstOrDefault());
+                    context.ClinicAdministrators.Remove((from x in context.ClinicAdministrators where x.AdministratorID == ID select x).FirstOrDefault());
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -58,14 +58,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void AddClinicAdministrator(vwAdministrator admin)
+        public void AddClinicAdministrator(ClinicAdministrator admin)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    admin.Password = Convert.ToString(admin.Password.GetHashCode());
-                    context.vwAdministrators.Add(admin);
+                    admin.Person.Password = Convert.ToString(admin.Person.Password.GetHashCode());
+                    context.ClinicAdministrators.Add(admin);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -76,14 +76,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void UpdateClinicAdministrator(vwAdministrator updated)
+        public void UpdateClinicAdministrator(ClinicAdministrator updated)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    updated.Password = Convert.ToString(updated.Password.GetHashCode());
-                    vwAdministrator admin = (from x in context.vwAdministrators where x.AdministratorID == updated.AdministratorID select x).FirstOrDefault();
+                    updated.Person.Password = Convert.ToString(updated.Person.Password.GetHashCode());
+                    ClinicAdministrator admin = (from x in context.ClinicAdministrators where x.AdministratorID == updated.AdministratorID select x).FirstOrDefault();
                     admin = updated;
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

@@ -51,18 +51,18 @@
                     Command="{Binding Logout, UpdateSourceTrigger=PropertyChanged}"/>
                 </StackPanel>
 
-                <TextBox Grid.Column="3" Grid.Row="1" Width="auto" Height="20" Name="txtFirstName" Text="{Binding Administrator.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Column="3" Grid.Row="3" Width="auto" Height="20" Name="txtLastName" Text="{Binding Administrator.LastName, UpdateSourceTrigger=PropertyChanged}"/>
-                <ComboBox Grid.Column="3" Grid.Row="5" Width="auto" Height="20" Name="cmbGender" Text="{Binding Administrator.Gender, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox Grid.Column="3" Grid.Row="1" Width="auto" Height="20" Name="txtFirstName" Text="{Binding Administrator.Person.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="3" Grid.Row="3" Width="auto" Height="20" Name="txtLastName" Text="{Binding Administrator.Person.LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox Grid.Column="3" Grid.Row="5" Width="auto" Height="20" Name="cmbGender" Text="{Binding Administrator.Person.Gender, UpdateSourceTrigger=PropertyChanged}">
                     <ComboBoxItem>M</ComboBoxItem>
                     <ComboBoxItem>F</ComboBoxItem>
                     <ComboBoxItem>O</ComboBoxItem>
                     <ComboBoxItem>X</ComboBoxItem>
                 </ComboBox>
-                <DatePicker Grid.Column="3" Grid.Row="7" Width="auto" Height="20" Name="dpDateOfBirth" Text="{Binding Administrator.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Column="3" Grid.Row="9" Width="auto" Height="20" Name="txtResidency" Text="{Binding Administrator.Residency, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Column="3" Grid.Row="11" Width="auto" Height="20" Name="txtUsername" Text="{Binding Administrator.Username, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBox Grid.Column="3" Grid.Row="13" Width="auto" Height="20" Name="txtPassword" Text="{Binding Administrator.Password, UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker Grid.Column="3" Grid.Row="7" Width="auto" Height="20" Name="dpDateOfBirth" Text="{Binding Administrator.Person.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="3" Grid.Row="9" Width="auto" Height="20" Name="txtResidency" Text="{Binding Administrator.Person.Residency, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="3" Grid.Row="11" Width="auto" Height="20" Name="txtUsername" Text="{Binding Administrator.Person.Username, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Column="3" Grid.Row="13" Width="auto" Height="20" Name="txtPassword" Text="{Binding Administrator.Person.Password, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </Border>
     </Grid>

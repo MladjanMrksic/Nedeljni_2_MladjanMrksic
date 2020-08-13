@@ -107,6 +107,7 @@
     <Compile Include="Model\ClinicMaintenanaceModel.cs" />
     <Compile Include="Model\ClinicManagerModel.cs" />
     <Compile Include="Model\ClinicPatientModel.cs" />
+    <Compile Include="Model\ClinicPersonModel.cs" />
     <Compile Include="Person.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

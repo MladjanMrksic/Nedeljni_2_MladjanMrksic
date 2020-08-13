@@ -47,7 +47,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    context.vwPatients.Remove((from x in context.vwPatients where x.PatientID == ID select x).FirstOrDefault());
+                    context.ClinicPatients.Remove((from x in context.ClinicPatients where x.PatientID == ID select x).FirstOrDefault());
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -58,14 +58,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void AddClinicPatient(vwPatient p)
+        public void AddClinicPatient(ClinicPatient p)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    p.Password = Convert.ToString(p.Password.GetHashCode());
-                    context.vwPatients.Add(p);
+                    p.Person.Password = Convert.ToString(p.Person.Password.GetHashCode());
+                    context.ClinicPatients.Add(p);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -76,14 +76,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void UpdateClinicPatient(vwPatient updated)
+        public void UpdateClinicPatient(ClinicPatient updated)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    updated.Password = Convert.ToString(updated.Password.GetHashCode());
-                    vwPatient p = (from x in context.vwPatients where x.PatientID == updated.PatientID select x).FirstOrDefault();
+                    updated.Person.Password = Convert.ToString(updated.Person.Password.GetHashCode());
+                    ClinicPatient p = (from x in context.ClinicPatients where x.PatientID == updated.PatientID select x).FirstOrDefault();
                     p = updated;
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

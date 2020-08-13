@@ -47,7 +47,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    context.vwManagers.Remove((from x in context.vwManagers where x.ManagerID == ID select x).FirstOrDefault());
+                    context.ClinicManagers.Remove((from x in context.ClinicManagers where x.ManagerID == ID select x).FirstOrDefault());
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -58,14 +58,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void AddClinicManager (vwManager m)
+        public void AddClinicManager (ClinicManager m)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    m.Password = Convert.ToString(m.Password.GetHashCode());
-                    context.vwManagers.Add(m);
+                    m.Person.Password = Convert.ToString(m.Person.Password.GetHashCode());
+                    context.ClinicManagers.Add(m);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -76,14 +76,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void UpdateClinicManager(vwManager updated)
+        public void UpdateClinicManager(ClinicManager updated)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    updated.Password = Convert.ToString(updated.Password.GetHashCode());
-                    vwManager m = (from x in context.vwManagers where x.ManagerID == updated.ManagerID select x).FirstOrDefault();
+                    updated.Person.Password = Convert.ToString(updated.Person.Password.GetHashCode());
+                    ClinicManager m = (from x in context.ClinicManagers where x.ManagerID == updated.ManagerID select x).FirstOrDefault();
                     m = updated;
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

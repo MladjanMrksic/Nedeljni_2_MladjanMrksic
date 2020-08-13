@@ -47,7 +47,7 @@ namespace MedicalInstitutionApp.Model
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    context.vwMaintenances.Remove((from x in context.vwMaintenances where x.MaintenanaceID == ID select x).FirstOrDefault());
+                    context.ClinicMaintenances.Remove((from x in context.ClinicMaintenances where x.MaintenanaceID == ID select x).FirstOrDefault());
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -58,14 +58,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void AddClinicMaintenanace(vwMaintenance m)
+        public void AddClinicMaintenanace(ClinicMaintenance m)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    m.Password = Convert.ToString(m.Password.GetHashCode());
-                    context.vwMaintenances.Add(m);
+                    m.Person.Password = Convert.ToString(m.Person.Password.GetHashCode());
+                    context.ClinicMaintenances.Add(m);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -76,14 +76,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void UpdateClinicMaintenance(vwMaintenance updated)
+        public void UpdateClinicMaintenance(ClinicMaintenance updated)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    updated.Password = Convert.ToString(updated.Password.GetHashCode());
-                    vwMaintenance m = (from x in context.vwMaintenances where x.MaintenanaceID == updated.MaintenanaceID select x).FirstOrDefault();
+                    updated.Person.Password = Convert.ToString(updated.Person.Password.GetHashCode());
+                    ClinicMaintenance m = (from x in context.ClinicMaintenances where x.MaintenanaceID == updated.MaintenanaceID select x).FirstOrDefault();
                     m = updated;
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);

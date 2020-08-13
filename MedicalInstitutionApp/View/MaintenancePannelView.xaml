@@ -40,7 +40,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btnDeleteEmployee"
-                                        Command="{Binding DataContext.DeleteEmployee, RelativeSource={RelativeSource FindAncestor,
+                                        Command="{Binding DataContext.Delete, RelativeSource={RelativeSource FindAncestor,
                                     AncestorType={x:Type Window}},UpdateSourceTrigger=PropertyChanged}" Content="Delete"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -49,7 +49,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="btnUpdateEmployee"
-                                        Command="{Binding DataContext.UpdateEmployee, RelativeSource={RelativeSource FindAncestor,
+                                        Command="{Binding DataContext.Update, RelativeSource={RelativeSource FindAncestor,
                                     AncestorType={x:Type Window}},UpdateSourceTrigger=PropertyChanged}" Content="Update"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -58,8 +58,8 @@
                     </DataGrid>
                 </Grid>
                 <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-                    <Button Name="btnAddEmployee" Content="Add Employee" Width="Auto" Height="20" HorizontalAlignment="Left" Margin="0,0,20,0"
-                Command="{Binding AddNewEmployee, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"/>
+                    <Button Name="btnAdd" Content="Add Maintenanace" Width="Auto" Height="20" HorizontalAlignment="Left" Margin="0,0,20,0"
+                Command="{Binding AddMaintenance, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Border>

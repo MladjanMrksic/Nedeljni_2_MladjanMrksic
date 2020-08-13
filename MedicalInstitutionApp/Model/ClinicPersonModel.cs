@@ -7,15 +7,15 @@ using System.Windows;
 
 namespace MedicalInstitutionApp.Model
 {
-    class ClinicDoctorModel
+    class ClinicPersonModel
     {
-        public List<vwDoctor> GetAllClinicDoctors()
+        public List<Person> GetAllClinicPeople()
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    return (from x in context.vwDoctors select x).ToList();
+                    return (from x in context.People select x).ToList();
                 }
             }
             catch (Exception ex)
@@ -25,13 +25,13 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public vwDoctor GetClinicDoctor(int ID)
+        public Person GetClinicPerson(int ID)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    return (from x in context.vwDoctors where x.DoctorID == ID select x).FirstOrDefault();
+                    return (from x in context.People where x.PersonID == ID select x).FirstOrDefault();
                 }
             }
             catch (Exception ex)
@@ -41,13 +41,13 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void DeleteClinicDoctor(int ID)
+        public void DeleteClinicPerson (int ID)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    context.ClinicDoctors.Remove((from x in context.ClinicDoctors where x.DoctorID == ID select x).FirstOrDefault());
+                    context.People.Remove((from x in context.People where x.PersonID == ID select x).FirstOrDefault());
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -58,14 +58,13 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void AddClinicDoctor(ClinicDoctor d)
+        public void AddClinicPerson(Person p)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    d.Person.Password = Convert.ToString(d.Person.Password.GetHashCode());
-                    context.ClinicDoctors.Add(d);
+                    context.People.Add(p);
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -76,15 +75,14 @@ namespace MedicalInstitutionApp.Model
             }
         }
 
-        public void UpdateClinicDoctor(ClinicDoctor updated)
+        public void UpdateClinicPerson(Person updated)
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    updated.Person.Password = Convert.ToString(updated.Person.Password.GetHashCode());
-                    ClinicDoctor d = (from x in context.ClinicDoctors where x.DoctorID == updated.DoctorID select x).FirstOrDefault();
-                    d = updated;
+                    Person p = (from x in context.People where x.PersonID == updated.PersonID select x).FirstOrDefault();
+                    p = updated;
                     context.SaveChanges();
                     MessageBox.Show("Action successfull!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

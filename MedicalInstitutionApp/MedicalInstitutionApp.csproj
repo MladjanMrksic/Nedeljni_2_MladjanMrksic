@@ -122,6 +122,7 @@
     <Compile Include="ViewModel\MaintenancePannelViewModel.cs" />
     <Compile Include="ViewModel\ManagerPannelViewModel.cs" />
     <Compile Include="ViewModel\PatientPannelViewModel.cs" />
+    <Compile Include="ViewModel\RegisterPatientViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\ClinicAdministratorView.xaml.cs">
       <DependentUpon>ClinicAdministratorView.xaml</DependentUpon>
@@ -161,6 +162,9 @@
     </Compile>
     <Compile Include="View\PatientPannelView.xaml.cs">
       <DependentUpon>PatientPannelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterPatientView.xaml.cs">
+      <DependentUpon>RegisterPatientView.xaml</DependentUpon>
     </Compile>
     <Compile Include="vwAdministrator.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -262,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PatientPannelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegisterPatientView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

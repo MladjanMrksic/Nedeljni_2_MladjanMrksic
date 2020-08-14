@@ -14,9 +14,9 @@ drop table ClinicPatient
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicDoctor')
 drop table ClinicDoctor
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicManager')
+drop table ClinicManager
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'ClinicAdministrator')
 drop table ClinicAdministrator
-drop table ClinicManager
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'Person')
 drop table Person
 IF EXISTS (SELECT name FROM sys.sysobjects WHERE name = 'vwMaintenance')

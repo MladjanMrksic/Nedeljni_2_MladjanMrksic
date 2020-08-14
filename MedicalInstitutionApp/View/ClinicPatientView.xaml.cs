@@ -19,8 +19,8 @@ namespace MedicalInstitutionApp.View
     /// </summary>
     public partial class ClinicPatientView : Window
     {
-        vwPatient patient = new vwPatient();
-        public ClinicPatientView(vwPatient p)
+        ClinicPatient patient = new ClinicPatient ();
+        public ClinicPatientView(ClinicPatient p)
         {
             patient = p;
             InitializeComponent();

@@ -24,7 +24,7 @@ namespace MedicalInstitutionApp.Validation
             List<vwMaintenance> MaintenanceList = maintenance.GetAllClinicMaintenance();
             List<vwManager> ManagerList = manager.GetAllClinicManagers();
             List<vwDoctor> DoctorList = doctor.GetAllClinicDoctors();
-            List<vwPatient> PatientList = patient.GetAllClinicPatients();
+            List<ClinicPatient> PatientList = patient.GetAllClinicPatients();
             List<vwAdministrator> AdministratorList = administrator.GetAllClinicAdministrators();
             List<string> OwnerAccess = GetClinicAccessCredentials();
 
@@ -58,9 +58,9 @@ namespace MedicalInstitutionApp.Validation
                 cdv.Show();
                 login.Close();
             }
-            else if (PatientList.Contains((from x in PatientList where x.Username == username && x.Password == password select x).FirstOrDefault()))
+            else if (PatientList.Contains((from x in PatientList where x.Person.Username == username && x.Person.Password == password select x).FirstOrDefault()))
             {
-                ClinicPatientView cpv = new ClinicPatientView((from x in PatientList where x.Username == username && x.Password == password select x).FirstOrDefault());
+                ClinicPatientView cpv = new ClinicPatientView((from x in PatientList where x.Person.Username == username && x.Person.Password == password select x).FirstOrDefault());
                 cpv.Show();
                 login.Close();
             }

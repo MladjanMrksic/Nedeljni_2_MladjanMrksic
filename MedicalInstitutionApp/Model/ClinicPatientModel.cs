@@ -9,13 +9,13 @@ namespace MedicalInstitutionApp.Model
 {
     class ClinicPatientModel
     {
-        public List<vwPatient> GetAllClinicPatients()
+        public List<ClinicPatient> GetAllClinicPatients()
         {
             try
             {
                 using (MedicalInstitutionDatabaseEntities context = new MedicalInstitutionDatabaseEntities())
                 {
-                    return (from x in context.vwPatients select x).ToList();
+                    return (from x in context.ClinicPatients select x).ToList();
                 }
             }
             catch (Exception ex)

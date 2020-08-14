@@ -116,6 +116,7 @@
     <Compile Include="Validation\PasswordValidation.cs" />
     <Compile Include="ViewModel\ClinicAdministratorViewModel.cs" />
     <Compile Include="ViewModel\ClinicOwnerViewModel.cs" />
+    <Compile Include="ViewModel\ClinicPatientViewModel.cs" />
     <Compile Include="ViewModel\DoctorPannelViewModel.cs" />
     <Compile Include="ViewModel\InstitutionPannelViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
